@@ -1,0 +1,7 @@
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+*.tfvars.swp
+.terraform/
+*-exporter.yml

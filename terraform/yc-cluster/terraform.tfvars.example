@@ -1,0 +1,11 @@
+service_account_key_file = "./key.json"
+service_account_id = "aje9oad0e4tgvcngigej"
+cloud_id                 = "b1ggm1096pprqloi32eq"
+folder_id                = "b1gb9b379sd4f3hc8c1s"
+subnet_id        = "e9b1crjgj5911nfo4n5j"
+network_id       = "enp7e2ksil3ujkfkaqfr"
+public_key_path  = "/home/hatter/.ssh/otus_ED_nodes.pub"
+private_key_path = "/home/hatter/.ssh/otus_ED_nodes"
+counts           = "2"
+#packer images with docker installed:
+docker_image_id  = "fd8299t1g7i3h5i5o8lp"
