@@ -1,0 +1,10 @@
+---
+service:
+  internalPort: 8000
+  externalPort: 80
+
+image:
+  repository: hatterfix/otus-project-ui
+  tag: latest
+
+databaseHost:

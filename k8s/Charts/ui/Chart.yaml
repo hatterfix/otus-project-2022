@@ -1,0 +1,7 @@
+name: ui
+version: 1.0.0
+description: OTUS project app ui
+maintainers:
+  - name: hatterfix
+    email: studhtfx@yandex.ru
+appVersion: 1.0
