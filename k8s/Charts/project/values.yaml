@@ -1,0 +1,23 @@
+crawler:
+  image:
+    repository: hatterfix/otus-project-crawler
+    tag: latest
+  service:
+    externalPort: 80
+
+rabbitmq:
+  image:
+    repository: rabbitmq
+    tag: 3
+  service:
+    externalPort: 5672
+
+ui:
+  image:
+    repository: hatterfix/otus-project-ui
+    tag: latest
+  service:
+    externalPort: 80
+
+mongodb:
+  usePassword: false

@@ -1,0 +1,15 @@
+dependencies:
+- name: ui
+  repository: file://../ui
+  version: 1.0.0
+- name: rabbitmq
+  repository: file://../rabbitmq
+  version: 1.0.0
+- name: crawler
+  repository: file://../crawler
+  version: 1.0.0
+- name: mongodb
+  repository: https://charts.helm.sh/stable
+  version: 7.8.10
+digest: sha256:1fe5288c7724de56e96786e1d80b8a57780e7ec37a15e4603775175a05da3eb7
+generated: "2022-11-09T18:59:59.693592741+03:00"
