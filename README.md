@@ -38,4 +38,16 @@ project
 
 К тому же при дальнейшей работе с проектом из чартов будет удобнее ставить сопутствующие компоненты приложения - мониторинг и логи 
 
-Работа над проектом продолжается
+В прокет добавлен namespace mon и  мониторинг prometheus+grafana с использованием публичного чарта [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
+Пока что снимаются метрики кластера, без компонент приложения.
+
+Из-за ограничений на количество LoadBalancer на кластер в YandexCloud элементы мониторинга доступны извне по NodePort
+
+Узнать пароль для входа в Grafana
+
+```sh
+kubectl get secret -n [namespace] [name] -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+```
+
+Продолжаю работу над проектом....
