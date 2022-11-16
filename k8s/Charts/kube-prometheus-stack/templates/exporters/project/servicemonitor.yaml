@@ -16,4 +16,6 @@ spec:
     matchNames:
       - dev
   endpoints:
-    - port: http
+  - interval: 15s
+    path: /
+    targetPort: 8000
