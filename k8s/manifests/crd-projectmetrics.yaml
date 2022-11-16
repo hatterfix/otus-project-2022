@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: project
+  labels:
+    app: project
+spec:
+  selector:
+    matchLabels:
+      app: project
+  namespaceSelector:
+    matchNames:
+      - dev
+  endpoints:
+    - port: 8000

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "crawler.fullname" . }}
+  labels:
+    app: project
+    jobLabel: crawler
+    component: bot
+    release: {{ .Release.Name }}
+    namespace: dev
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.Crawler.service.externalPort }}
+      protocol: TCP
+      targetPort: {{ .Values.Crawler.service.internalPort }}
+  selector:
+    app: project
+    component: bot
+    release: {{ .Release.Name }}

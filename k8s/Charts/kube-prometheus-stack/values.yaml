@@ -2,6 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+#Custom variables
+Crawler:
+  service:
+    internalPort: 8000
+    externalPort: 80
 ## Provide a name in place of kube-prometheus-stack for `app:` labels
 ##
 nameOverride: ""
