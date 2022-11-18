@@ -46,8 +46,12 @@ project
 Узнать пароль для входа в Grafana
 
 ```sh
-kubectl get secret -n [namespace] [name] -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+kubectl get secret -n [namespace] [projectname]-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 
 ```
+
+
+Подключил сбор метрик приложения в kube-prometheus-stack через поиск сервиса компонент приложения по локальным dns.
+
 
 Продолжаю работу над проектом....
