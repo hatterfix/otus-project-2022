@@ -3,7 +3,7 @@ crawler:
     repository: hatterfix/otus-project-crawler
     tag: latest
   service:
-    externalPort: 80
+    externalPort: 8000
 
 rabbitmq:
   image:

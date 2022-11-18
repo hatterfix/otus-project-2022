@@ -2,11 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-#Custom variables
-Crawler:
-  service:
-    internalPort: 8000
-    externalPort: 80
 ## Provide a name in place of kube-prometheus-stack for `app:` labels
 ##
 nameOverride: ""
@@ -855,10 +850,6 @@ grafana:
   ## Passed to grafana subchart and used by servicemonitor below
   ##
   service:
-    enabled: true
-    type: LoadBalancer
-    port: 80
-    targetPort: 3000
     portName: http-web
 
   serviceMonitor:
@@ -1790,6 +1781,9 @@ prometheusOperator:
   ## Create a servicemonitor for the operator
   ##
   serviceMonitor:
+    ## Labels for ServiceMonitor
+    additionalLabels: {}
+
     ## Scrape interval. If not set, the Prometheus default scrape interval is used.
     ##
     interval: ""
@@ -2073,7 +2067,7 @@ prometheus:
     ## Port to expose on each node
     ## Only used if service.type is 'NodePort'
     ##
-    nodePort: 30090
+    nodePort: 30081
 
     ## Loadbalancer IP
     ## Only use if service.type is "LoadBalancer"
@@ -2086,7 +2080,7 @@ prometheus:
 
     ## Service type
     ##
-    type: LoadBalancer
+    type: NodePort
 
     ## Additional port to define in the Service
     additionalPorts: []
@@ -2692,7 +2686,16 @@ prometheus:
     ## The scrape configuration example below will find master nodes, provided they have the name .*mst.*, relabel the
     ## port to 2379 and allow etcd scraping provided it is running on all Kubernetes master nodes
     ##
-    additionalScrapeConfigs: []
+    additionalScrapeConfigs: 
+      - job_name: 'crawler'
+        static_configs:
+        - targets: 
+          - 'project-crawler.dev.svc.cluster.local:8000'
+    
+      - job_name: 'ui' 
+        static_configs:
+        - targets: 
+          - 'project-ui.dev.svc.cluster.local:8000'
     # - job_name: kube-etcd
     #   kubernetes_sd_configs:
     #     - role: node
@@ -2916,6 +2919,12 @@ prometheus:
     ## Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to
     ## be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).
     minReadySeconds: 0
+
+    # Required for use in managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico),
+    # because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working
+    # Use the host's network namespace if true. Make sure to understand the security implications if you want to enable it.
+    # When hostNetwork is enabled, this will set dnsPolicy to ClusterFirstWithHostNet automatically.
+    hostNetwork: false
 
   additionalRulesForClusterRole: []
   #  - apiGroups: [ "" ]
