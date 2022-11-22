@@ -54,7 +54,7 @@ imagePullPolicy: IfNotPresent
 ## be retrieved from your GitLab Instance.
 ## ref: https://docs.gitlab.com/ce/ci/runners/index.html
 ##
-# runnerRegistrationToken: ""
+runnerRegistrationToken: ""
 
 ## The Runner Token for adding new Runners to the GitLab Server. This must
 ## be retrieved from your GitLab Instance. It is token of already registered runner.
@@ -85,7 +85,7 @@ terminationGracePeriodSeconds: 3600
 ## this is used to populate the /home/gitlab-runner/.gitlab-runner/certs/ directory
 ## ref: https://docs.gitlab.com/runner/configuration/tls-self-signed.html#supported-options-for-self-signed-certificates-targeting-the-gitlab-server
 ##
-# certsSecretName:
+#certsSecretName:
 
 ## Configure the maximum number of concurrent jobs
 ## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-global-section
@@ -386,7 +386,7 @@ runners:
   ## ref: https://docs.gitlab.com/runner/executors/kubernetes.html#using-dockerdind
   ##
   ## DEPRECATED: See https://docs.gitlab.com/runner/install/kubernetes.html#additional-configuration
-  # privileged: false
+  privileged: true
 
   ## The name of the secret containing runner-token and runner-registration-token
   # secret: gitlab-runner

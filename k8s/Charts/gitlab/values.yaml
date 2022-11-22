@@ -48,10 +48,10 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: example.com
+    domain: 158.160.38.226.nip.io
     hostSuffix:
     https: true
-    externalIP:
+    externalIP: 158.160.38.226
     ssh: ~
     gitlab: {}
     minio: {}
@@ -166,7 +166,7 @@ global:
     dbSecret: {}
     virtualStorages:
       - name: default
-        gitalyReplicas: 3
+        gitalyReplicas: 1
         maxUnavailable: 1
     psql:
       sslMode: disable
@@ -785,10 +785,10 @@ upgradeCheck:
       cpu: 50m
 
 ## Settings to for the Let's Encrypt ACME Issuer
-# certmanager-issuer:
+certmanager-issuer:
 #   # The email address to register certificates requested from Let's Encrypt.
 #   # Required if using Let's Encrypt.
-#   email: email@example.com
+   email: studhtfx@yandex.ru
 
 ## Installation & configuration of jetstack/cert-manager
 ## See requirements.yaml for current version
@@ -833,7 +833,7 @@ nginx-ingress:
         memory: 100Mi
     publishService:
       enabled: true
-    replicaCount: 2
+    replicaCount: 1
     minAvailable: 1
     scope:
       enabled: true

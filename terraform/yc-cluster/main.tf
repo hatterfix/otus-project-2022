@@ -43,9 +43,9 @@ resource "yandex_kubernetes_node_group" "cluster-node" {
       nat       = true
 
     resources {
-    core_fraction = 5
+    core_fraction = 20
     cores         = 4
-    memory        = 4
+    memory        = 8
     }
 
     boot_disk {

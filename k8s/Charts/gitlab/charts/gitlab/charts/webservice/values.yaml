@@ -114,7 +114,7 @@ ingress:
   # Use this in combination of .deployments below
   requireBasePath: true
 
-workerProcesses: 2
+workerProcesses: 1
 
 puma:
   threads:
@@ -200,7 +200,7 @@ workhorse:
       additionalLabels: {}
       endpointConfig: {}
   imageScaler:
-    maxProcs: 2 # aim for max(2, requested_cpus / 2)
+    maxProcs: 1 # aim for max(2, requested_cpus / 2)
     maxFileSizeBytes: 250000
   tls: {}
     # verify: true
@@ -394,8 +394,8 @@ resources:
     cpu: 300m
     memory: 2.5G
 maxUnavailable: 1
-minReplicas: 2
-maxReplicas: 10
+minReplicas: 1
+maxReplicas: 1
 helmTests:
   enabled: true
 
