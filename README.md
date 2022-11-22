@@ -54,4 +54,9 @@ kubectl get secret -n [namespace] [projectname]-grafana -o jsonpath="{.data.admi
 Подключил сбор метрик приложения в kube-prometheus-stack через поиск сервиса компонент приложения по локальным dns.
 
 
+
+Ingress Controller для github 
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+
 Продолжаю работу над проектом....

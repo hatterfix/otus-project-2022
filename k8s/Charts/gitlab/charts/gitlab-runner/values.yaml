@@ -48,7 +48,7 @@ imagePullPolicy: IfNotPresent
 ## The GitLab Server URL (with protocol) that want to register the runner against
 ## ref: https://docs.gitlab.com/runner/commands/index.html#gitlab-runner-register
 ##
-# gitlabUrl: http://gitlab.your-domain.com/
+gitlabUrl: https://gitlab.51.250.7.57.nip.io/
 
 ## The Registration Token for adding new Runners to the GitLab Server. This must
 ## be retrieved from your GitLab Instance.
@@ -389,7 +389,7 @@ runners:
   privileged: true
 
   ## The name of the secret containing runner-token and runner-registration-token
-  # secret: gitlab-runner
+  #secret: gitlab-gitlab-runner-secret
 
   ## Namespace to run Kubernetes jobs in (defaults to the same namespace of this release)
   ##
