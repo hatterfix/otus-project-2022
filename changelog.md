@@ -29,3 +29,17 @@
 - Реализовать через ServiceMonitor не получилось
 - Добавил сбор метрик через additionalScrapeConfigs в values.yaml
 - Сменил тип сервисов компонент приложения на NodePort, для прямого внешнего доступа
+
+### 21.11.22 - 22.11.22
+- Добавил официальный чарт gitlab
+- Добавил ресурсов на кластер
+- Тестировал модификации переменных внутри компонент чарта
+- Добился деплоя gitlab с letsencrypt и зарегистрированным раннером
+
+Вывести стартовый пароль gitlab в namespace gitlab:
+
+```sh
+
+kubectl get secret -n gitlab gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo
+
+```
