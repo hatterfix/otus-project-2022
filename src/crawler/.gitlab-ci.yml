@@ -1,0 +1,39 @@
+image: alpine:latest
+
+
+stages:
+  - build
+  - test
+
+variables:
+  MONGO: mongodb
+  MONGO_PORT: 27017
+  DOCKER_DRIVER: overlay2
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+before_script:
+  - mkdir -p $HOME/.docker
+  - echo $DOCKER_AUTH_CONFIG > $HOME/.docker/config.json
+  script:
+    - echo 'Building'
+    - docker build -t $DOCKER_REGISTRY_USER/otus-project-crawler:latest .
+    - docker push $DOCKER_REGISTRY_USER/otus-project-crawler:latest && docker image rm $DOCKER_REGISTRY_USER/otus-project-crawler:latest
+
+test:
+  stage: test
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  script:
+    - echo 'Test crawler'
+    - docker run $DOCKER_REGISTRY_USER/otus-project-crawler:latest python -m unittest discover -s tests/

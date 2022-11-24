@@ -50,7 +50,7 @@ resource "yandex_kubernetes_node_group" "cluster-node" {
 
     boot_disk {
       type = "network-ssd"
-      size = 64
+      size = 96
     }
 
     metadata = {

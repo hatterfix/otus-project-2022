@@ -48,10 +48,10 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: 51.250.7.57.nip.io
+    domain: 158.160.45.127.nip.io
     hostSuffix:
     https: true
-    externalIP: 51.250.7.57
+    externalIP: 158.160.45.127
     ssh: ~
     gitlab: {}
     minio: {}
